@@ -6,12 +6,12 @@ import App from './App'
 import './index.css'
 import { msalConfig } from './msalConfig'
 
-const msalInstance = new PublicClientApplication(msalConfig)
+// const msalInstance = new PublicClientApplication(msalConfig)
 
 createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <MsalProvider instance={msalInstance}>
+  // <React.StrictMode>
+    // <MsalProvider instance={msalInstance}>
       <App />
-    </MsalProvider>
-  </React.StrictMode>
+    // </MsalProvider>
+  // </React.StrictMode>
 )

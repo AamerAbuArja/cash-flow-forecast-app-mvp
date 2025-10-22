@@ -5,71 +5,13 @@
   },
   "routes": [
     {
-      "route": "/CareerPage",
-      "methods": [
-        "get"
-      ],
-      "statusCode": 301,
-      "allowedRoles": [
-        "anonymous"
-      ]
-    },
-    {
       "route": "/About",
       "methods": [
         "get"
       ]
     },
     {
-      "route": "/SuccessStory",
-      "methods": [
-        "get"
-      ]
-    },
-    {
       "route": "/Contact",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/ERPDevelopment",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/ERPConsultationImplementation",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/ERPPharmaIndustries",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/D365BusinessCentral",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/D365FinanceOperations",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/Epicor-ERP",
-      "methods": [
-        "get"
-      ]
-    },
-    {
-      "route": "/MostQuestions",
       "methods": [
         "get"
       ]
