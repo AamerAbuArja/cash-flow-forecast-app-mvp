@@ -155,7 +155,7 @@ const App = () => {
         {/* Header */}
         <div className="flex justify-between items-center pb-6 border-b border-indigo-100">
           <h1 className="text-3xl font-extrabold text-indigo-700 flex items-center gap-2">
-            <ChartBarIcon className="w-8 h-8 text-indigo-500" /> Cosmos Dashboard (Unauthenticated)
+            <ChartBarIcon className="w-8 h-8 text-indigo-500" /> Cosmos Dashboard
           </h1>
           {/* Removed Auth Buttons */}
         </div>
