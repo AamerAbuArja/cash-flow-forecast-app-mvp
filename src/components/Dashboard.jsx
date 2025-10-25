@@ -69,32 +69,32 @@ const App = () => {
     setChartInstance(c);
   };
 
-  const updateChart = (data) => {
-    if (!chartInstance) return;
+  // const updateChart = (data) => {
+  //   if (!chartInstance) return;
 
-    chartInstance.data = {
-      labels: data.map(r => r.id.substring(0, 8)),
-      datasets: [
-        {
-          label: 'Value A',
-          data: data.map(r => r.valueA),
-          backgroundColor: 'rgba(79, 70, 229, 0.7)', // Indigo-500
-          borderColor: 'rgb(79, 70, 229)',
-          borderWidth: 1,
-          borderRadius: 4
-        },
-        {
-          label: 'Value B',
-          data: data.map(r => r.valueB),
-          backgroundColor: 'rgba(234, 179, 8, 0.7)', // Amber-500
-          borderColor: 'rgb(234, 179, 8)',
-          borderWidth: 1,
-          borderRadius: 4
-        }
-      ]
-    };
-    chartInstance.update();
-  };
+  //   chartInstance.data = {
+  //     labels: data.map(r => r.id.substring(0, 8)),
+  //     datasets: [
+  //       {
+  //         label: 'Value A',
+  //         data: data.map(r => r.Type),
+  //         backgroundColor: 'rgba(79, 70, 229, 0.7)', // Indigo-500
+  //         borderColor: 'rgb(79, 70, 229)',
+  //         borderWidth: 1,
+  //         borderRadius: 4
+  //       },
+  //       {
+  //         label: 'Value B',
+  //         data: data.map(r => r.Amount),
+  //         backgroundColor: 'rgba(234, 179, 8, 0.7)', // Amber-500
+  //         borderColor: 'rgb(234, 179, 8)',
+  //         borderWidth: 1,
+  //         borderRadius: 4
+  //       }
+  //     ]
+  //   };
+  //   chartInstance.update();
+  // };
 
   async function fetchData() {
     setLoading(true);
@@ -105,7 +105,7 @@ const App = () => {
       if (res.ok) {
         const data = await res.json();
         setRecords(data);
-        updateChart(data);
+        // updateChart(data);
       } else {
         setError(`Failed to fetch data: ${res.statusText} (${res.status})`);
         console.error('Fetch failed', res.status);
