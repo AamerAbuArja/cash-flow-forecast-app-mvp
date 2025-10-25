@@ -9,7 +9,7 @@ namespace api.Functions;
 
 public class GetTransaction
 {
-     private readonly CosmosClient _cosmosClient;
+    private readonly CosmosClient _cosmosClient;
     private readonly Container _container;
 
     public GetTransaction(CosmosClient client)
@@ -20,7 +20,7 @@ public class GetTransaction
 
     [Function("GetTransactions")]
     public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "transactions")] HttpRequestData req)
+        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetTransactions")] HttpRequestData req)
     {
         var response = req.CreateResponse();
         try

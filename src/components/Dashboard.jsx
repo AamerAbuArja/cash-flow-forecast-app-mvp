@@ -101,7 +101,7 @@ const App = () => {
     setError(null);
     try {
       // API call simplified: removed Authorization header
-      const res = await fetch(`${API_BASE}/GetTransaction`);
+      const res = await fetch(`/api/GetTransaction`);
       if (res.ok) {
         const data = await res.json();
         setRecords(data);
@@ -129,7 +129,7 @@ const App = () => {
 
     try {
       // API call simplified: removed Authorization header
-      const res = await fetch(`${API_BASE}/AddTransaction`, {
+      const res = await fetch(`/api/AddTransaction`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
