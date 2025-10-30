@@ -4,7 +4,7 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Builder; // here
+// using Microsoft.AspNetCore.Builder; // here
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
@@ -24,9 +24,9 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 {
 		options.AllowSynchronousIO = true;
 });
-builder.Services.Configure<IISServerOptions>(options =>
-{
-    options.AllowSynchronousIO = true;
-});
+// builder.Services.Configure<IISServerOptions>(options =>
+// {
+//     options.AllowSynchronousIO = true;
+// });
 
 builder.Build().Run();
