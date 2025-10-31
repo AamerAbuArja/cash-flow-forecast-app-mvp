@@ -19,29 +19,29 @@ public class GetTransactions
     {
         _logger = logger;
 		_cosmosClient = client;
-		_container = _cosmosClient.GetContainer("CashflowDB", "Transactions");
+		_container = _cosmosClient.GetContainer("CashflowDB", "Transaction");
     }
 
     [Function("GetTransactions")]
-    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "transaction")] HttpRequestData req)
     {
         var response = req.CreateResponse();
 		try
 		{
 			var query = System.Web.HttpUtility.ParseQueryString(req.Url.Query);
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-			string projectId = query["projectId"];
+			string tenantId = query["tenantId"];
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
-			if (string.IsNullOrWhiteSpace(projectId))
-			{
-				response.StatusCode = HttpStatusCode.BadRequest;
-				await response.WriteStringAsync("{\"error\":\"Missing query parameter: projectId\"}");
-				return response;
-			}
+			if (string.IsNullOrWhiteSpace(tenantId))
+            {
+                response.StatusCode = HttpStatusCode.BadRequest;
+                await response.WriteStringAsync("{\"error\":\"Missing query parameter: tenantId\"}");
+                return response;
+            }
 
-			var sql = new QueryDefinition("SELECT * FROM c WHERE c.projectId = @projectId")
-					.WithParameter("@projectId", projectId);
+			var sql = new QueryDefinition("SELECT * FROM c WHERE c.tenantId = @tenantId")
+					.WithParameter("@tenantId", tenantId);
 
 			var results = new List<Transaction>();
 			using var iterator = _container.GetItemQueryIterator<Transaction>(sql);

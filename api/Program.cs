@@ -22,8 +22,10 @@ builder.Services.AddSingleton(cosmosClient);
 
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
-		options.AllowSynchronousIO = true;
+	options.AllowSynchronousIO = true;
 });
+
+// المشكلة كانت في هذا الكود الخرى تحت
 // builder.Services.Configure<IISServerOptions>(options =>
 // {
 //     options.AllowSynchronousIO = true;

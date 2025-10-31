@@ -6,23 +6,42 @@ namespace api.Models
     {
         [JsonProperty(PropertyName = "id")]
         public Guid Id { get; set; } = Guid.NewGuid();
-        
-        [JsonProperty(PropertyName = "projectId")]
-        public required string ProjectId { get; set; }
-        public required string Type { get; set; }  // "income" or "expense"
-        public required string Category { get; set; }
-        public required string Description { get; set; }
-        public decimal Amount { get; set; }
-        public required string Currency { get; set; }
-        public decimal FxRate { get; set; }
-        public DateTime DateIssued { get; set; }
-        public int PaymentTerms { get; set; } // days
+
+        [JsonProperty(PropertyName = "tenantId")]
+        public string TenantId { get; set; }
+
+        [JsonProperty(PropertyName = "companyId")]
+        public string CompanyId { get; set; }
+
+        [JsonProperty(PropertyName = "accountId")]
+        public string AccountId { get; set; }
+        public string Type { get; set; }
+        public string SourceSystem { get; set; }
+        public string SourceId { get; set; }
+        public DateTime PostedDate { get; set; }
+        public DateTime ValueDate { get; set; }
+        public double Amount { get; set; }
+        public double TaxAmount { get; set; }
+        public double NetAmount { get; set; }
+        public double TaxRate { get; set; }
+        public int PaymentTerms { get; set; }
+        public string Currency { get; set; }
+        public double FxRate { get; set; }
+        public double ConvertedAmount { get; set; }
+        public string Category { get; set; }
+        public string Description { get; set; }
+        public InvoiceDetails Invoice { get; set; }
+        public DateTime CreatedAt { get; set; }
         public DateTime PaymentDate { get; set; }
-        public decimal TaxRate { get; set; }
-        public decimal TaxAmount { get; set; }
-        public decimal NetAmount { get; set; }
-        public decimal ConvertedAmount { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime DateIssued { get; set; }
+    }
+
+    public class InvoiceDetails
+    {
+        public string InvoiceId { get; set; }
+        public DateTime DueDate { get; set; }
+        public int PaymentTermsDays { get; set; }
+        public string Status { get; set; }
     }
 
     public class ForecastResult
