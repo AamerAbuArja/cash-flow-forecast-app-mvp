@@ -7,6 +7,10 @@ namespace api.Models
         [JsonProperty(PropertyName = "id")]
         public Guid Id { get; set; } = Guid.NewGuid();
 
+        // Sender-provided transaction id for external reference / idempotency
+        [JsonProperty(PropertyName = "senderTransactionId")]
+        public string SenderTransactionId { get; set; }
+
         [JsonProperty(PropertyName = "tenantId")]
         public string TenantId { get; set; }
 
